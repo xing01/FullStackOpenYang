@@ -1,4 +1,4 @@
-# Diagrama de la Aplicación de una Sola Página
+# Diagrama de acceso a la Aplicación de una Sola Página
 
 ```mermaid
 sequenceDiagram
@@ -6,18 +6,29 @@ sequenceDiagram
     participant browser as Navegador
     participant server as Servidor
 
-    user->>browser: Escribe nueva nota y clic en "Save"
-    
-    Note right of browser: JavaScript intercepta el envío del formulario (sin recargar la página)
-
-    browser->>browser: Agrega la nota al DOM "Document object Model" (reescribe las notas)
-
-    browser->>server: POST /new_note_spa (nota en JSON)
+    user->>browser: Accede a /spa
+    browser->>server: GET /spa (HTML)
     activate server
-    Note right of server: El servidor guarda la nueva nota
-
-    server-->>browser: HTTP 201 Created (sin redirección)
+    server-->>browser: HTML document
     deactivate server
 
-    Note right of browser: La página no se recarga, la nueva nota ya está en pantalla
+    browser->>server: GET /main.css (CSS)
+    activate server
+    server-->>browser: main.css
+    deactivate server
+
+    browser->>server: GET /spa.js (JavaScript)
+    activate server
+    server-->>browser: spa.js
+    deactivate server
+
+    Note right of browser: El navegador ejecuta spa.js
+
+    browser->>server: GET /data.json (Notas en formato JSON)
+    activate server
+    server-->>browser: [{ "content": "Nota 1", "date": "2023-10-20" }, ... ]
+    deactivate server
+
+    Note right of browser: El navegador renderiza las notas en la página
+
 ```
