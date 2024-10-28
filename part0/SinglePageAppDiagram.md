@@ -10,7 +10,7 @@ sequenceDiagram
     
     Note right of browser: JavaScript intercepta el envío del formulario (sin recargar la página)
 
-    browser->>browser: Agrega la nota al DOM (redrawNotes)
+    browser->>browser: Agrega la nota al DOM "Document object Model" (reescribe las notas)
 
     browser->>server: POST /new_note_spa (nota en JSON)
     activate server
