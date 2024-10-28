@@ -12,11 +12,11 @@ sequenceDiagram
 
     browser->>browser: Agrega la nota al DOM "Document object Model" (reescribe las notas)
 
-    browser->>server: POST /new_note_spa (nota en JSON)
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/spa/new_note_spa (nota en JSON)
     activate server
     Note right of server: El servidor guarda la nueva nota
 
-    server-->>browser: HTTP 201 Created (sin redirección)
+    server-->>browser: HTTP 201 Created (El servidor no solicita una redirección, el navegador permanece en la misma página y no envía más solicitudes HTTP.)
     deactivate server
 
     Note right of browser: La página no se recarga, la nueva nota ya está en pantalla

@@ -36,7 +36,7 @@ sequenceDiagram
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
     activate server
-    server-->>browser: [{ "content": "Nueva nota", "date": "2024-10-26" }, ... ]
+    server-->>browser: [{ "content": "HTML is easy", "date": "2024-10-26" }, ... ]
     deactivate server
 
     browser->>user: Página recargada con la nueva nota

@@ -6,29 +6,29 @@ sequenceDiagram
     participant browser as Navegador
     participant server as Servidor
 
-    user->>browser: Accede a /spa
-    browser->>server: GET /spa (HTML)
+    user->>browser: Accede a https://studies.cs.helsinki.fi/exampleapp/spa
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa (HTML)
     activate server
     server-->>browser: HTML document
     deactivate server
 
-    browser->>server: GET /main.css (CSS)
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa/main.css (CSS)
     activate server
-    server-->>browser: main.css
+    server-->>browser: Hoja de estilo CSS
     deactivate server
 
-    browser->>server: GET /spa.js (JavaScript)
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa/spa.js (JavaScript)
     activate server
-    server-->>browser: spa.js
+    server-->>browser: Archivo JavaScript del SPA
     deactivate server
 
     Note right of browser: El navegador ejecuta spa.js
 
-    browser->>server: GET /data.json (Notas en formato JSON)
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa/data.json (Notas en formato JSON)
     activate server
-    server-->>browser: [{ "content": "Nota 1", "date": "2023-10-20" }, ... ]
+    server-->>browser: [{ "content": "HTML is easy", "date": "2023-10-20" }, ... ]
     deactivate server
 
-    Note right of browser: El navegador renderiza las notas en la página
+    Note right of browser: El navegador muestra las notas en la página
 
 ```
