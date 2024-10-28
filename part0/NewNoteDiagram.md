@@ -1,3 +1,7 @@
+#Diagrama de nueva nota
+
+```mermaid
+
 sequenceDiagram
     participant user as Usuario
     participant browser as Navegador
@@ -35,3 +39,5 @@ sequenceDiagram
     deactivate server
 
     browser->>user: Página recargada con la nueva nota
+
+```
