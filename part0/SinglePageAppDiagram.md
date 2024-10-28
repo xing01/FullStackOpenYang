@@ -26,7 +26,7 @@ sequenceDiagram
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa/data.json (Notas en formato JSON)
     activate server
-    server-->>browser: [{ "content": "HTML is easy", "date": "2023-10-20" }, ... ]
+    server-->>browser: [{ "content": "HTML is easy", "date": "2023-1-1" }, ... ]
     deactivate server
 
     Note right of browser: El navegador muestra las notas en la página
