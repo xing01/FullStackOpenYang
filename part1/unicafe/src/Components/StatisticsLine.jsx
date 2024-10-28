@@ -1,8 +1,10 @@
+//Componente individual para cada línea de estadistica
 const StatisticLine = ({ text, value }) => {
     return (
-      <p>
-        {text}: {value}
-      </p>
+        <tr>
+        <td>{text}</td>
+        <td>{value}</td>
+      </tr>
     )
   }
   
