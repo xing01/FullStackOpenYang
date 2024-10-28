@@ -3,11 +3,12 @@
 ```mermaid
 
 sequenceDiagram
+
     participant user as Usuario
     participant browser as Navegador
     participant server as Servidor
 
-    user->>browser: Escribe nueva nota y clic en "Save"
+    user->>browser: Escribe nueva nota y hace clic en "Save"
     
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note (nota en JSON)
     activate server
