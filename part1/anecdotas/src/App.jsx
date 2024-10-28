@@ -30,13 +30,33 @@ const App = () => {
     setPoints(copy)           
   }
 
+   // Encontrar la anécdota con más votos
+   const getMostVotedAnecdote = () => {
+    const maxVotes = Math.max(...Object.values(points)) 
+    const mostVotedIndex = Object.keys(points).find(index => points[index] === maxVotes) 
+    return mostVotedIndex
+  }
+
+  const mostVotedIndex = getMostVotedAnecdote() //Anecdota mas votada
+  const maxVotes = Math.max(...Object.values(points)); //Numero de votos existentes
+
   return (
     <div>
       <p>{anecdotes[selected]}</p>
       <p>has {points[selected]} votes</p>
       <button onClick={handleVote}>Vote</button>
       <button onClick={handleNextAnecdote}>next anecdote</button>
+
+      <h1>Anecdote with most votes</h1>
+      {maxVotes > 0 && (  
+        <div>
+          <p>{anecdotes[mostVotedIndex]}</p>
+          <p>has {points[mostVotedIndex]} votes</p>
+        </div>
+      )}
     </div>
+
+
   )
 }
 
