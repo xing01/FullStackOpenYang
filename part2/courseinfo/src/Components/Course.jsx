@@ -1,15 +1,17 @@
-// components/Course.jsx
 import React from 'react';
 import Header from './Header';
 import Content from './Content';
 
 const Course = ({ course }) => {
-  return (
-    <div>
-      <Header title={course.name} /> {/* Renderiza el nombre del curso */}
-      <Content parts={course.parts} /> {/* Renderiza las partes del curso */}
-    </div>
-  );
+
+    const totalExercises = course.parts.reduce((sum, part) => sum + part.exercises, 0)
+    return (
+        <div>
+            <Header title={course.name} />
+            <Content parts={course.parts} />
+            <p><strong>Total of {totalExercises} exercises</strong></p>
+        </div>
+    );
 };
 
 export default Course;
